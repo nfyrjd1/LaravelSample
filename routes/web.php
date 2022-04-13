@@ -15,6 +15,10 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
+
 //namespace автоматически дописывает к PostController => Blog\PostController
 //prefix автоматически дописывает к post => blog/post
 Route::group(['namespace' => 'Blog', 'prefix' => 'blog'], function() {
