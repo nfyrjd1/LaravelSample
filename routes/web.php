@@ -14,3 +14,11 @@
 Route::get('/', function () {
     return view('welcome');
 });
+
+//namespace автоматически дописывает к PostController => Blog\PostController
+//prefix автоматически дописывает к post => blog/post
+Route::group(['namespace' => 'Blog', 'prefix' => 'blog'], function() {
+    Route::resource('post', 'PostController')->names('blog.post');
+});
+
+//php artisan route:list
