@@ -21,8 +21,14 @@ Route::get('/home', 'HomeController@index')->name('home');
 
 //namespace автоматически дописывает к PostController => Blog\PostController
 //prefix автоматически дописывает к post => blog/post
-Route::group(['namespace' => 'Blog', 'prefix' => 'blog'], function() {
+Route::group(['namespace' => 'Blog', 'prefix' => 'blog'], function () {
     Route::resource('post', 'PostController')->names('blog.post');
+});
+
+Route::group(['namespace' => 'Blog\Admin', 'prefix' => 'admin/blog'], function () {
+    Route::resource('category', 'CategoryController')
+        ->only(['index', 'create', 'store', 'edit', 'update'])
+        ->names('blog.admin.category');
 });
 
 //php artisan route:list

@@ -3,12 +3,12 @@
 @section('content')
     <div class="container">
         <div class="row justify-content-center">
-            <div class="col-md-8">
+            <div class="col-md-12">
                 <div class="card">
                     <div class="card-header font-weight-bold">Список постов</div>
 
-                    <div class="card-body">
-                        <table>
+                    <div class="card-body p-0">
+                        <table class="table">
                             <thead>
                                 <tr>
                                     <th>#</th>
