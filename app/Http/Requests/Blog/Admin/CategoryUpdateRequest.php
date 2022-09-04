@@ -34,11 +34,12 @@ class CategoryUpdateRequest extends FormRequest
     public function messages()
     {
         return [
-            'title.required' => 'Название обязательно для заполнения',
+            'title.required' => 'Название обязательно для заполнения.',
+            'title.min' => 'Минимальная длина названия 5 символов',
             'title.max'  => 'Название не должно превышать 255 символов',
             'slug.max'  => 'Идентификатор не должен превышать 255 символов',
             'description.max'  => 'Описание не должно превышать 500 символов',
-            'description.min'  => 'Описание обязательно для заполнения',
+            'description.min'  => 'Минимальная длина описания 3 символа',
             'parent_id.required'  => 'Родитель обязателен для заполнения',
             'parent_id.exists'  => 'Не удалось найти родителя',
         ];
