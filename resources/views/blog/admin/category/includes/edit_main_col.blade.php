@@ -14,7 +14,6 @@
             <input name="slug" class="form-control" id="slug" type="text" value="{{old('slug', $item->slug)}}">
         </div>
 
-        @if ($item->id > 1)
         <div class="form-group">
             <label for="parent_id">Родитель:</label>
             <select name="parent_id" class="form-control" id="parent_id" placeholder="Выберите категорию" required>
@@ -26,7 +25,6 @@
                 @endforeach
             </select>
         </div>
-        @endif
 
         <div class="form-group">
             <label for="description">Описание:</label>

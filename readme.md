@@ -85,6 +85,10 @@ compact($test1, $test2) = ['test1' => $test1, 'test2' => $test2];
 Создание контроллера (Флаг ресурс - для добавления всех дефолтных методов)
 php artisan make:controller TestController --resourse
 
+Получить значения:
+$request->input();
+$request->all();
+
 Вернуть ошибки на форму
 back()->withErrors(['msg' => "test error"])
 Вернуть полученные данные обратно на форму, чтобы не стереть их
@@ -96,7 +100,8 @@ back()->withInput();
 Описываем правила
 $rules = [
     'test' => 'string|required|min:5|max:200',
-    'id_test' => 'integer|required|exists:test_table,id'
+    'id_test' => 'integer|required|exists:test_table,id',
+    'slug' => 'max:255|unique:blog_categories|slug',
 ];
 Описываем текст ошибок для каждой возможной ситуации
 $messages = [
@@ -171,6 +176,10 @@ php artisan make:model TestModel
 
 Для апдейта уже созданного объекта класса мы можем использовать метод $item->fill($data), но для его использования, необходимо указать в моделе список полей сущности, которые доступны для изменения с помощью этого метода
 protected $fillable = ['test'];
+Для сохранения тут же вызываем ->save(); Или можно просто написать $item->update($data);
+
+Создание сущности и сохранение в бд
+$item = (new Test())->create($data);
 
 
 

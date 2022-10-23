@@ -1,8 +1,11 @@
 @extends('layouts.app')
 
 @section('content')
-<form action="{{ route('blog.admin.category.update', $item->id) }}" method="POST">
-    @method('PATCH')
+@if ($item->exists)
+<form action="{{ route('blog.admin.category.update', $item->id) }}" method="POST"> @method('PATCH')
+@else
+<form action="{{ route('blog.admin.category.store') }}" method="POST">
+@endif
     @csrf
     <div class="container">
         @if ($errors->any())
